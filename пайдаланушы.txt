@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant User as Пайдаланушы
+    participant Bot as Telegram Bot
+    participant Valid as Валидатор
+    participant DB as Деректер қоры
+
+    User->>Bot: Жас мәніне "жиырма" жазады
+    Bot->>Valid: validate_age("жиырма")
+    Valid-->>Bot: Қате: сан емес
+    Bot-->>User: ❌ Жасыңызды санмен жазыңыз
+
+    User->>Bot: /admin командасы
+    Bot->>DB: SELECT role FROM users
+    DB-->>Bot: role = "student"
+    Bot-->>User: ⛔ Қолжетімсіз
