@@ -14,7 +14,7 @@ erDiagram
     }
     QUESTION ||--o{ ANSWER : contains
     QUESTION {
-        int id PK
+        int id PK 
         string text
         int order_num
     }
